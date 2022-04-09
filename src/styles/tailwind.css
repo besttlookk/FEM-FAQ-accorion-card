@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .faq {
+    /* HEADER STYLE STARTS HERE */
+    &__header {
+      p {
+        @apply text-text-light text-sm;
+      }
+
+      svg {
+        @apply fill-red transition-all;
+      }
+      @apply flex items-center justify-between gap-3;
+    }
+    /* HEADER STYLE ENDS HERE */
+
+    &__content {
+      p {
+        display: none;
+      }
+      @apply h-0 opacity-0 py-1 text-sm text-text-light;
+    }
+
+    &.active {
+      .faq__header {
+        p {
+          @apply text-text-dark font-bold;
+        }
+
+        svg {
+          @apply transform rotate-180;
+        }
+      }
+
+      .faq__content {
+        height: auto;
+        opacity: 1;
+        p {
+          display: block;
+        }
+      }
+    }
+
+    @apply border-b border-light py-3 px-1;
+  }
+}
